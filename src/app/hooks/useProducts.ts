@@ -10,16 +10,21 @@ export interface UseProducts{
 	isLoading: boolean;
 	data: DataType.ItemProduct[];
 	error: string;
+	addProduct: (value: DataType.ItemProduct) => void;
 }
 
 export function useProducts(): UseProducts {
+	// Auxiliary
 	const [isLoading, setLoading] = useState<boolean>(true)
 	const [data, setData] = useState<DataType.ItemProduct[]>([])
 	const [error, setError] = useState<string>("")
+	// TypeScript Guard
 	function isObjectEssenceWithMessageKey(value: unknown): value is Tools.ObjectWithSearchKeys<{ message: any }> {
 		if (value instanceof Object && "message" in value) return true
 		return false
 	}
+	// HANDLERS
+	const addProduct = (data: DataType.ItemProduct) => setData(prevState => [data, ...prevState])
 	async function fetchAllDataProducts() {
 		setLoading(true)
 		setError("")
@@ -49,6 +54,7 @@ export function useProducts(): UseProducts {
 	return {
 		data,
 		error,
-		isLoading
+		isLoading,
+		addProduct
 	}
 }

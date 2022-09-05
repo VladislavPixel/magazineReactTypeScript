@@ -42,6 +42,18 @@ $fontFamily: "Montserrat", sans-serif;
 		font-size: 22px;
 		font-weight: 600;
 	}
+	&__wrapper-btn-create-modal{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+	&__btn-create-modal{
+		padding: 7px;
+		background: rgb(0, 191, 255);
+		font-size: 17px;
+		border-radius: 4px;
+		color: white;
+	}
 	&__modal-block{
 
 	}

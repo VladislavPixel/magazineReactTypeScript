@@ -20,8 +20,11 @@ const exampleProductData: DataType.ItemProduct = {
 	image: "https://i.pravatar.cc",
 	category: "electronic"
 }
+interface CreateProductProps{
+	onCreate: (data: DataType.ItemProduct) => void
+}
 
-const CreateProduct = () => {
+const CreateProduct = ({ onCreate }: CreateProductProps) => {
 	const [value, setValue] = useState<string>("")
 	const [error, setError] = useState("")
 	const handlerChange = (event: React.ChangeEvent<HTMLInputElement>) => setValue(prevState => event.target.value)
@@ -38,7 +41,13 @@ const CreateProduct = () => {
 				id: Date.now() + exampleProductData.id,
 				title: value
 			})
-			console.log(responce, "Ответ после отправки данных")
+			const saveDataResponce = {
+				...responce.data,
+				rating: {
+					rate: 99,
+					count: 17
+			}}
+			onCreate(saveDataResponce)
 		} catch (err: unknown) {
 			const errorEssence = err as AxiosError
 			setError(errorEssence.message)

@@ -1,33 +1,14 @@
-import React, { useState } from "react"
-import { useProducts } from "./hooks/products"
+import { Route, Routes } from "react-router-dom"
 // Components
-import ProductsList from "./components/ui/productsList"
-import Spinner from "./components/common/spinner"
-import ErrorLite from "./components/common/errorLite"
-import Modal from "./components/ui/modal"
-import CreateProduct from "./components/ui/createProduct"
+import ProductsPage from "./components/page/productsPage"
+import AboutPage from "./components/page/aboutPage"
 
 function App() {
-	const { data, isLoading, error } = useProducts()
-	const [isModal, setModal] = useState<boolean>(true)
 	return (
-		<div className="wrapper__container block-container">
-			<h1 className="block-container__title">Товары магазина</h1>
-			{
-				isLoading ?
-				<div className="block-container__wrap-spinner">
-					<Spinner />
-				</div> :
-				error.length ?
-				<ErrorLite classes="block-container__error-text" text={error} /> :
-				<ProductsList data={data} />
-			}
-			{isModal &&
-				<Modal textTitle="Модальное окно создания продукта">
-					<CreateProduct  />
-				</ Modal>
-			}
-		</div>
+		<Routes>
+			<Route path="/" element={ <ProductsPage /> } />
+			<Route path="/about" element={<AboutPage />} />
+		</Routes>
 	)
 }
 
