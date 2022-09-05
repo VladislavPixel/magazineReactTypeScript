@@ -11,7 +11,7 @@ interface ProductsListProps{
 const ProductsList = ({ data }: ProductsListProps) => {
 	return (
 		<div className="block-container__products-list block-products">
-			{data.map((item, index) => <Product key={index} data={item} />)}
+			{data.map((item, index) => <Product key={index + item.id} data={item} />)}
 		</div>
 	)
 }

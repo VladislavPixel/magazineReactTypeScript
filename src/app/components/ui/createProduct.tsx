@@ -9,6 +9,7 @@ import config from "../../config.json"
 import type { AxiosError } from "axios"
 
 const exampleProductData: DataType.ItemProduct = {
+	id: Date.now(),
 	rating: {
 		rate: 99,
 		count: 17
@@ -26,16 +27,18 @@ const CreateProduct = () => {
 	const handlerChange = (event: React.ChangeEvent<HTMLInputElement>) => setValue(prevState => event.target.value)
 	const handlerSubmit = async (event: React.FormEvent) => {
 		event.preventDefault()
+		setError("")
 		if (value.trim() === "") {
 			setError("Пожалуйста, заполните название создаваемого продукта")
 			return
 		}
 		try{
 			const responce = await httpService.post<DataType.ItemProduct>(config.apiEndPoint, {
-				id: Date.now(),
 				...exampleProductData,
+				id: Date.now() + exampleProductData.id,
 				title: value
 			})
+			console.log(responce, "Ответ после отправки данных")
 		} catch (err: unknown) {
 			const errorEssence = err as AxiosError
 			setError(errorEssence.message)

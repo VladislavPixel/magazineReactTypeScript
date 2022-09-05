@@ -4,7 +4,7 @@ export namespace DataType{
 		count: number;
 	}
 	export interface ItemProduct{
-		id?: number;
+		id: number;
 		title: string;
 		price: number;
 		description: string;

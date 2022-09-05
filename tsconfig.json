@@ -21,7 +21,7 @@
 		"jsx": "react-jsx",
 		"importsNotUsedAsValues": "error",
 		"noImplicitOverride": true,
-		"experimentalDecorators": true,
+		"experimentalDecorators": true
 	},
 	"include": [
 		"src"
