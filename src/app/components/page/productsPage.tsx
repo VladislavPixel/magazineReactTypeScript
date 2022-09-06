@@ -1,4 +1,3 @@
-import React from "react"
 // Auxiliary
 import { useModalCreateProduct } from "../../hooks/useModalCreateProduct"
 import { useProducts } from "../../hooks/useProducts"
@@ -21,8 +20,8 @@ const ProductsPage = () => {
 		close()
 	}
 	return (
-		<div className="wrapper__container block-container">
-			<h1 className="block-container__title">Товары магазина</h1>
+		<div className={"wrapper__container block-container" + (isModal ? " no-active" : "")}>
+			<h2 className="block-container__title">Товары магазина</h2>
 			<div className="block-container__wrapper-btn-create-modal">
 				<button onClick={open} className="block-container__btn-create-modal">Создать дополнительный товар</button>
 			</div>

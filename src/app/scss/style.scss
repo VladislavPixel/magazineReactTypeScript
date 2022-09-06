@@ -23,7 +23,6 @@ $fontFamily: "Montserrat", sans-serif;
 
 // <ОСНОВНОЙ КЛАСС РАСПРОСТРАНЯЮЩИЙСЯ НА ВСЕ КЛАССЫ> =========================================================================
 .block-container{
-	overflow: hidden;
 	&__products-list{
 		margin: 0px -15px -35px -15px;
 	}
@@ -54,8 +53,8 @@ $fontFamily: "Montserrat", sans-serif;
 		border-radius: 4px;
 		color: white;
 	}
-	&__modal-block{
-
+	&.no-active{
+		overflow: hidden
 	}
 }
 
@@ -63,3 +62,5 @@ $fontFamily: "Montserrat", sans-serif;
 @import "./spinner";
 @import "./products";
 @import "./modal";
+@import "./header";
+@import "./navigation";

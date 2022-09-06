@@ -1,0 +1,15 @@
+.header-block{
+	background: rgb(0, 70, 168);
+	padding: 15px;
+	align-self: stretch;
+	&__container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__title{
+		color: white;
+		font-size: 19px;
+		font-weight: 600;
+	}
+}

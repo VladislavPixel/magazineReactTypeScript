@@ -1,4 +1,3 @@
-import React from "react"
 // Components
 import Product from "./product"
 // TypeScript models
